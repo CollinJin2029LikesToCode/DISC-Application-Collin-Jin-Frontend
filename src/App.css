@@ -154,3 +154,43 @@ body {
   color: #888;
   text-decoration: line-through;
 }
+
+.nu-navbar {
+  background-color: #4E2A84;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 4px solid #836EAA;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.nu-brand {
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.nu-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nu-nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+.nu-nav-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  color: #E4E0EE;
+}
