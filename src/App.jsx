@@ -1,33 +1,56 @@
-import { useState } from 'react'
+import {useState, useEffect} from 'react'
+import {CourseForm} from "./courseForm"
+import {CourseList} from './courseList'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [courseList, setCourseList] = useState(() => {
+    const localCourse = localStorage.getItem("ITEMS")
+    if (localCourse == null) return []
+    return JSON.parse(localCourse)
+  })
 
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(courseList))
+  },[courseList])
+
+  function addCourse(title){
+    setCourseList((currentCourseList) => {
+      return [
+        ...currentCourseList,
+        {id:crypto.randomUUID(),
+          title,
+          completed: false
+        },
+      ]
+    })
+  }
+  function registerCourse(id,completed){
+    setCourseList(currentCourseList => {
+      return currentCourseList.map(course => {
+        if(course.id == id){
+          return {...course, completed}
+        }
+        return course
+      })
+    })
+  }
+  function deleteCourse(id){
+    setCourseList(currentCourseList => {
+      return currentCourseList.filter(course => course.id != id)
+    })
+  }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 className="header">FAKE NORTHWESTERN CAESAR BY COLLIN</h1>
+      <h3> I used useState to update and maintain the course list</h3>
+      <h3> I used useEffect to maintain a local storage of the course list</h3>
+      <CourseForm submitCourse={addCourse}/>
+      <h1 className="header">Your Classes</h1>
+      <CourseList course={courseList} registerCourse={registerCourse} deleteCourse={deleteCourse}/>
     </>
   )
 }
