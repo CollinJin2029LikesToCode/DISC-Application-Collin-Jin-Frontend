@@ -12,7 +12,7 @@ export function CourseList({course, registerCourse, deleteCourse}){
         {course.map(course => {
           return (
         
-          <CourseItem id={course.id} completed={course.compelted} title={course.title} registerCourse ={registerCourse} deleteCourse={deleteCourse} key={course.id}/>
+          <CourseItem id={course.id} completed={course.completed} title={course.title} registerCourse ={registerCourse} deleteCourse={deleteCourse} key={course.id}/>
           )
         })}
       </ul>

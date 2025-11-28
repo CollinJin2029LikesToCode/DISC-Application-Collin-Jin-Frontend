@@ -14,7 +14,7 @@ function App() {
     <Route path = "/course" element={<CourseOffering />} />
     <Route path = "/ctec" element={<Ctec />} />
   </Routes>
-<h6> This submission focuses on frontend implementation using React Router Dom and LocalStorage for data persistence (Assignment 3-4). <br/> API/Database integration will be in the next submission (Assignment 5-7).</h6>
+<h6> This submission focuses on backend implementation.</h6>
  </>
   )
 }

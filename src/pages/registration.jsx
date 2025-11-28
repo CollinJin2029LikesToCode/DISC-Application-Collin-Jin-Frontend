@@ -43,9 +43,9 @@ function Registration() {
   }
   return (
     <>
-      <h1 className="header">FAKE NORTHWESTERN CAESAR BY COLLIN</h1>
-      <h3> I used useState to update and maintain the course list</h3>
-      <h3> I used useEffect to maintain a local storage of the course list</h3>
+      <h1 className="header">FAKE NORTHWESTERN CAESAR WITH SUPABASE BY COLLIN</h1>
+      <h2 className="header">This page doesn't contain backend integration,
+        please proceed to course offering page</h2>
       <CourseForm submitCourse={addCourse}/>
       <h1 className="header">Your Classes</h1>
       <CourseList course={courseList} registerCourse={registerCourse} deleteCourse={deleteCourse}/>
